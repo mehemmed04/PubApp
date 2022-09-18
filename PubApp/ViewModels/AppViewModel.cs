@@ -16,7 +16,7 @@ namespace PubApp.ViewModels
         public FakeRepo BeerRepostery { get; set; }
         public ObservableCollection<Beer> Beers { get; set; }
 
-        public ProductHistory ProductHistory { get; set; } = new ProductHistory();
+        public PubApp.Repostories.ProductHistory ProductHistory { get; set; } = new PubApp.Repostories.ProductHistory();
         public RelayCommand BuyCommand { get; set; }
         public RelayCommand ResetCommand { get; set; }
         public RelayCommand ShowHistoryCommand { get; set; }
@@ -49,7 +49,7 @@ namespace PubApp.ViewModels
                 Beer.Count++;
             }, (o) =>
             {
-                return true;
+                return Beer != null;
             });
 
             CountDownCommand = new RelayCommand((o) =>
