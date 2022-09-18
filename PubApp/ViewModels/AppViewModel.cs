@@ -80,6 +80,7 @@ namespace PubApp.ViewModels
 
                 FileHelper.GeneratePDF(Beer);
                 MessageBox.Show("Bought");
+                Beer.Count = 1;
                 Beer = null;
             }, (o) =>
             {
