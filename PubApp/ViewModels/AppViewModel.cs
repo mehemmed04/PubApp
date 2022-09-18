@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PubApp.ViewModels
 {
@@ -15,7 +16,7 @@ namespace PubApp.ViewModels
         public FakeRepo BeerRepostery { get; set; }
         public ObservableCollection<Beer> Beers { get; set; }
 
-
+        public ProductHistory ProductHistory { get; set; } = new ProductHistory();
         public RelayCommand BuyCommand { get; set; }
         public RelayCommand ResetCommand { get; set; }
         public RelayCommand ShowHistoryCommand { get; set; }
@@ -55,18 +56,56 @@ namespace PubApp.ViewModels
             {
                 if (Beer != null)
                 {
-                Beer.Count--;
+                    Beer.Count--;
                 }
 
             }, (o) =>
             {
                 if (Beer != null)
                 {
-                return Beer.Count > 1;
+                    return Beer.Count > 1;
                 }
                 return false;
             });
 
+
+            BuyCommand = new RelayCommand((o) =>
+            {
+                BeerProduct bp = new BeerProduct
+                {
+                    Beer = Beer,
+                    DateTime = DateTime.Now
+                };
+                ProductHistory.History.Add(bp);
+
+                FileHelper.GeneratePDF(Beer);
+                MessageBox.Show("Bought");
+                Beer = null;
+            }, (o) =>
+            {
+                return Beer != null;
+            });
+
+
+            ResetCommand = new RelayCommand((o) =>
+            {
+                Beer = null;
+            }, (o) =>
+            {
+                return Beer != null;
+            });
+
+            ShowHistoryCommand = new RelayCommand((o) =>
+            {
+                ProductHistoryViewModel historyViewModel = new ProductHistoryViewModel();
+                historyViewModel.History = ProductHistory.History;
+
+                PubApp.Views.ProductHistory ph = new PubApp.Views.ProductHistory();
+                ph.DataContext= historyViewModel;
+
+                ph.ShowDialog();
+
+            });
 
         }
 

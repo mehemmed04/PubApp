@@ -116,9 +116,9 @@
         </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Padding="10" Width ="200" Margin="25,5" FontSize="22">Buy</Button>
-            <Button Padding="10" Width ="200" Margin="25,5" FontSize="22">Reset</Button>
-            <Button Padding="10" Width ="200" Margin="25,5" FontSize="22">Show History</Button>
+            <Button Padding="10" Width ="200" Margin="25,5" FontSize="22" Command ="{Binding BuyCommand}">Buy</Button>
+            <Button Padding="10" Width ="200" Margin="25,5" FontSize="22" Command ="{Binding ResetCommand}">Reset</Button>
+            <Button Padding="10" Width ="200" Margin="25,5" FontSize="22" Command ="{Binding ShowHistoryCommand}">Show History</Button>
         </StackPanel>
 
     </Grid>
