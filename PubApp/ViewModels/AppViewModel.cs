@@ -73,14 +73,14 @@ namespace PubApp.ViewModels
             {
                 BeerProduct bp = new BeerProduct
                 {
-                    Beer = Beer,
+                    Beer = (Beer)Beer.Clone(),
                     DateTime = DateTime.Now
                 };
                 ProductHistory.History.Add(bp);
 
                 FileHelper.GeneratePDF(Beer);
-                MessageBox.Show("Bought");
                 Beer.Count = 1;
+                MessageBox.Show("Bought");
                 Beer = null;
             }, (o) =>
             {
@@ -90,6 +90,7 @@ namespace PubApp.ViewModels
 
             ResetCommand = new RelayCommand((o) =>
             {
+                Beer.Count = 1;
                 Beer = null;
             }, (o) =>
             {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PubApp.Models
 {
-    public class Beer:Entity,INotifyPropertyChanged
+    public class Beer:Entity,INotifyPropertyChanged,ICloneable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -31,6 +31,9 @@ namespace PubApp.Models
             get { return count; }
             set { count = value; OnPropertyChanged(); }
         }
-
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

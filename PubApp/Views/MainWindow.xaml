@@ -202,7 +202,6 @@
         </Grid.RowDefinitions>
 
         <ComboBox Name="mycombobox" ItemsSource="{Binding Beers}" DisplayMemberPath="Name">
-
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged" >
                     <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="{Binding ElementName=mycombobox,Path=SelectedItem}" ></i:InvokeCommandAction>
