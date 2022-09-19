@@ -25,7 +25,7 @@ namespace PubApp.Models
             di = di.Parent.Parent;
             currentDirectory = di.FullName;
             var logo = iTextSharp.text.Image.GetInstance(currentDirectory + "/"+beer.ImagePath);
-            logo.ScaleAbsoluteHeight(300);
+            logo.ScaleAbsoluteHeight(500);
             logo.ScaleAbsoluteWidth(500);
 
             var content = $"Name : {beer.Name}\nVolume : {beer.Volume} litre\nPrice : {beer.Price} $\nCount : {beer.Count}\n\nThanks for shopping...";

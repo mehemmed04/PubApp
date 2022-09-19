@@ -129,5 +129,10 @@
     <Resource Include="Images\Corona.jpg" />
     <Resource Include="Images\Tuborg.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\baltika.png" />
+    <Resource Include="Images\kuller.jpg" />
+    <Resource Include="Images\xirdalan.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

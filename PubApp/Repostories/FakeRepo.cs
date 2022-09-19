@@ -16,6 +16,9 @@ namespace PubApp.Repostories
                 new Beer{ Count = 1, Name="Tuborg", Price=12.34, Volume=0.35, ImagePath="/Images/Tuborg.jpg" },
                 new Beer{ Count = 1, Name="Corona", Price=8.12, Volume=0.5, ImagePath="/Images/Corona.jpg" },
                 new Beer{ Count = 1, Name="Bira", Price=7.48, Volume=0.4, ImagePath="/Images/Bira.png" },
+                new Beer{ Count = 1, Name="Baltika", Price=5.48, Volume=0.45, ImagePath="/Images/baltika.png" },
+                new Beer{ Count = 1, Name="Kuller", Price=7.48, Volume=0.5, ImagePath="/Images/kuller.jpg" },
+                new Beer{ Count = 1, Name="Xirdalan", Price=7.48, Volume=0.5, ImagePath="/Images/xirdalan.jpg" },
             };
         }
 
